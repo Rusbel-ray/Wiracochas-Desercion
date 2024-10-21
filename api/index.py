@@ -4,7 +4,7 @@ import joblib
 app = Flask(__name__)
 
 # Carga el modelo
-model = joblib.load('model/random_forest_model.pkl')
+model = joblib.load('./model/random_forest_model.pkl')
 
 @app.route('/', methods=['GET', 'POST'])
 def form():
