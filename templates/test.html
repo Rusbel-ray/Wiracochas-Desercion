@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicción de Deserción</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input[type="number"], select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #5cb85c;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        .prediction-result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center; 
+        }
+    </style>
+</head>
+<body>
+    <h2>Ingresa tus datos para predecir la deserción:</h2>
+    <form action="/predict" method="post">
+        
+        <label for="edad">Edad (18-30 años):</label>
+        <input type="number" id="edad" name="edad" min="18" max="30" required>
+
+        <label for="genero">Género:</label>
+        <select id="genero" name="genero" required>
+            <option value="" disabled selected>Selecciona una opción</option>
+            <option value="1">Hombre</option>
+            <option value="0">Mujer</option>
+        </select>
+
+        <label for="promedio">Promedio del semestre anterior (0-20):</label>
+        <input type="number" id="promedio" name="promedio" min="0" max="20" step="0.01" required>
+
+        <label for="reprobadas">Asignaturas reprobadas (0-4):</label>
+        <input type="number" id="reprobadas" name="reprobadas" min="0" max="4" required>
+
+        <label for="aprobadas">Asignaturas aprobadas (1-6):</label>
+        <input type="number" id="aprobadas" name="aprobadas" min="1" max="6" required>
+
+        <label for="semestres">Número de semestres matriculado (1-10):</label>
+        <input type="number" id="semestres" name="semestres" min="1" max="10" required>
+
+        <label for="asistencia">Asistencia (%):</label>
+        <input type="number" id="asistencia" name="asistencia" min="0" max="100" step="0.01" required>
+
+        <label for="distancia">Distancia a la universidad (km) (0-30 km):</label>
+        <input type="number" id="distancia" name="distancia" min="0" max="30 step=0.01 required>
+
+        <label for "trabaja">¿Trabajas?:</label>
+        <select id "trabaja" name "trabaja">
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option value "1">Sí</option>
+          <option value "0">No</option>
+      </select>
+
+      <label for "alcohol">Frecuencia de consumo de alcohol:</label>
+      <select id "alcohol" name "alcohol">
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option value "0">Nunca</option>
+          <option value "1">Ocasionalmente</option>
+          <option value "2">Frecuentemente</option>
+      </select>
+
+      <label for "tabaco">Consumo de tabaco:</label>
+      <select id "tabaco" name "tabaco">
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option value "1">Sí</option>
+          <option value "0">No</option>
+      </select>
+
+      <!-- Agrega aquí los campos adicionales que necesites -->
+
+      <!-- Botón de envío -->
+      <button type "submit">Predecir</button>
+
+    </form>
+
+    {% if prediction_text %}
+    <!-- Mostrar el resultado de la predicción -->
+    <div class='prediction-result'>
+      {{ prediction_text }}
+    </div>
+    {% endif %}
+    
+</body>
+</html>
