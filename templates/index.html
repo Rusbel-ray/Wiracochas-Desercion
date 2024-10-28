@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicción de Deserción Estudiantil</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <div class="container">
+        <h2>Predicción de Deserción Estudiantil</h2>
+        <form action="/predict" method="POST">
+            <label>Edad:</label>
+            <input type="number" name="edad" step="1" min="18" max="30" required>
+
+            <label>Género:</label>
+            <select name="genero" required>
+                <option value="0">Femenino</option>
+                <option value="1">Masculino</option>
+            </select>
+
+            <label>Promedio Calificaciones (0-20):</label>
+            <input type="number" name="promedio_calificaciones_semestre_anterior" step="0.01" min="0" max="20" required>
+
+            <label>Asignaturas Reprobadas (0-4):</label>
+            <input type="number" name="asignaturas_reprobadas" min="0" max="4" required>
+
+            <label>Asignaturas Aprobadas (1-6):</label>
+            <input type="number" name="asignaturas_aprobadas" min="1" max="6" required>
+
+            <label>Número de Semestres Matriculado (1-10):</label>
+            <input type="number" name="numero_semestres_matriculado" min="1" max="10" required>
+
+            <label>Asistencia (%):</label>
+            <input type="number" name="asistencia" step="0.01" min="0" max="100" required>
+
+            <label>Distancia a la Universidad (km):</label>
+            <input type="number" name="distancia_universidad" step="0.1" min="0" max="30" required>
+
+            <label>Trabaja:</label>
+            <select name="trabaja" required>
+                <option value="0">No</option>
+                <option value="1">Sí</option>
+            </select>
+
+            <label>Frecuencia de Consumo de Alcohol:</label>
+            <select name="frecuencia_consumo_alcohol" required>
+                <option value="0">Nunca</option>
+                <option value="1">Ocasionalmente</option>
+                <option value="2">Frecuentemente</option>
+            </select>
+
+            <label>Consumo de Tabaco:</label>
+            <select name="consumo_tabaco" required>
+                <option value="0">No</option>
+                <option value="1">Sí</option>
+            </select>
+
+            <label>Bica (ha reprobado al menos un ciclo completo):</label>
+            <select name="bica" required>
+                <option value="0">No</option>
+                <option value="1">Sí</option>
+            </select>
+
+            <label>Trica (ha reprobado tres veces un curso):</label>
+            <select name="trica" required>
+                <option value="0">No</option>
+                <option value="1">Sí</option>
+            </select>
+
+            <button type="submit">Predecir</button>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <h3>{{ result }}</h3>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

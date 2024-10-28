@@ -1,0 +1,92 @@
+/* Estilos CSS sofisticados y modernos */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    color: #e6e6e6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: rgba(15, 15, 15, 0.95);
+    padding: 3rem;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: scale(1.05);
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #fbba72;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 1rem;
+    color: #ccc;
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #e6e6e6;
+    font-size: 1rem;
+}
+
+input[type="number"]:focus,
+select:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s;
+}
+
+button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #fbba72;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #1a2a6c;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #ffb84d;
+    transform: scale(1.05);
+}
+
+.result {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #333;
+    border-radius: 5px;
+    color: #fbba72;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
